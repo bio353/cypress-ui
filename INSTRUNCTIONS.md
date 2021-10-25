@@ -13,7 +13,7 @@ Bons Estudos!
 
 ## Exercício 1
 
-Utilizando todo conhecimento obtido durante as aulas, desenvolva nomínimo 6 casos de teste para algum web site da sua escolha (Pelo menos 1 caso deve ser negativo). Atente-se para as seguintes informações:
+Utilizando todo conhecimento obtido durante as aulas, desenvolva no mínimo 6 casos de teste para algum web site da sua escolha (Pelo menos 1 caso deve ser negativo). Atente-se para as seguintes informações:
 
 1. **Recomenda-se** a utilização da ferramenta cypress.
 2. **Não** é permitido utilizar os websites já testados durante as aulas ou presentesno repositório da disciplina (globalsqa e testpages).
