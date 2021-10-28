@@ -10,11 +10,9 @@ Utilizando [cypress](https://docs.cypress.io/guides/getting-started/installing-c
 
 Após ter todas as dependências devidamente instaladas, basta irmos executarmos as seguintes linhas de comando no terminal:
 
+`npm init`
+
 `npm run cypress`
-
-`2`
-
-`3`
 
 Depois, é só colocar a pazinha no congelador e tá pronto! :3
 
