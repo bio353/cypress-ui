@@ -1,0 +1,24 @@
+{
+  "name": "cypress-ui",
+  "version": "1.0.0",
+  "description": "Teste de UI com Cypress.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress": "./node_modules/.bin/cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bio353/cypress-ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bio353/cypress-ui/issues"
+  },
+  "homepage": "https://github.com/bio353/cypress-ui#readme",
+  "dependencies": {
+    "cypress": "^8.6.0"
+  }
+}
