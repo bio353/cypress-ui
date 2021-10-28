@@ -20,5 +20,10 @@
   "homepage": "https://github.com/bio353/cypress-ui#readme",
   "dependencies": {
     "cypress": "^8.6.0"
+  },
+  "devDependencies": {
+    "mochawesome": "^6.3.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0"
   }
 }
