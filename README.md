@@ -8,18 +8,34 @@ Utilizando [cypress](https://docs.cypress.io/guides/getting-started/installing-c
 
 ## Como usar?
 
-Após ter todas as dependências devidamente instaladas, basta irmos executarmos as seguintes linhas de comando no terminal:
+Após ter todas as dependências devidamente instaladas, basta irmos executarmos a seguinte linha de comando no terminal:
 
-`npm init`
+» `npm init`
 
-`npm run cypress`
+Então, é possível utilizar alguns outros comandos, como:
+
+1. Testar com **cypress**:
+
+   » `npm run anydice-test`
+
+2. Gerar relatório:
+
+   » `npm run anydice-report`
+
+3. Dar _merge_ nos relatórios:
+
+   » `npm run anydice-merge`
+
+4. Gerar página **html**:
+
+   » `npm run anydice-html`
 
 Depois, é só colocar a pazinha no congelador e tá pronto! :3
+
+~~Em caso de extrema preguiça, os arquivos gerados já estão neste repositório.~~
 
 ## Quem sou eu?
 
 > "My name is Barry Allen" - Barry Allen, probably
 
-Até ontem, pelo menos, me chamava Fabio e estava cursando Engenharia de Software no Inatel. Meu número de matrícula é 22, mas não me chame para cantar funk e dar PlayStation 2.
-
-![Demonstração](demo.png)
+Até ontem, pelo menos, me chamava Fabio e meu número de matrícula era 22, mas não me chame para cantar funk e dar PlayStation 2.
