@@ -4,64 +4,57 @@
 describe("SUIT de Teste: testando as funcionalidades do site anydice.com", () => {
   // 1
   it("Cenário de Teste: Rolando 1d20 e Somando 5", () => {
-    cy.visit("https://anydice.com/");
-    cy.get("#codeInput").clear().type("output 1d20 + 5");
-    cy.get("#calculateButton").click();
-    cy.wait(1000);
-    cy.get(":nth-child(15) > :nth-child(2)").should("contain.text", "5.00");
+    cy.accessAnyDice();
+    cy.inputDice("output 1d20 + 5");
+    cy.checkText(":nth-child(20) > :nth-child(1)", "25");
   });
 
   // 2
   it("Cenário de Teste: Acessando a Documentação", () => {
-    cy.visit("https://anydice.com/");
-    cy.get("#documentationPage-selector").click();
-    cy.get("#documentationPage > :nth-child(2)").click();
-    cy.wait(1000);
+    cy.accessAnyDice();
+    cy.seeDocumentation();
+    cy.clickAndWait("#documentationPage > :nth-child(2)");
     cy.scrollTo("bottom");
-    cy.get("#documentationPage > :nth-child(20)").should(
-      "contain.text",
-      "Functions"
-    );
+    cy.checkText("#documentationPage > :nth-child(20)", "Functions");
   });
 
   // 3
   it("Cenário de Teste: Gerando Erro de Sintaxe", () => {
-    cy.visit("https://anydice.com/");
-    cy.get("#codeInput")
-      .clear()
-      .type(`output 1d20 as "ataque de espada longa"`);
-    cy.get("#calculateButton").click();
-    cy.wait(1000);
-    cy.get("#errorDisplay > h3").should("contain.text", "syntax error");
+    cy.accessAnyDice();
+    cy.inputDice("#codeInput", `output 1d20 as "ataque de espada longa"`);
+    cy.checkText("#errorDisplay > h3", "syntax error");
   });
 
   // 4
   it("Cenário de Teste: Usando Funções", () => {
-    cy.visit("https://anydice.com/");
-    cy.get("#codeInput").clear().type(testFunction);
-    cy.get("#calculateButton").click();
-    cy.wait(1000);
-    cy.get(":nth-child(10) > caption").should("contain.text", "10d");
+    cy.accessAnyDice();
+    cy.inputDice(testFunction);
+    cy.scrollTo("bottom");
+    cy.checkText(":nth-child(10) > caption", "10d");
   });
 
   // 5
   it("Cenário de Teste: Rolando Dados Arbitrários", () => {
-    cy.visit("https://anydice.com/");
-    cy.get("#codeInput").clear().type(`output d{{}-1..1} named "Fudge die"`);
-    cy.get("#calculateButton").click();
-    cy.wait(1000);
-    cy.get("caption").should("contain.text", "Fudge die");
+    cy.accessAnyDice();
+    cy.inputDice(`output d{{}-1..1} named "Fudge die"`);
+    cy.checkText("caption", "Fudge die");
   });
 
   // 6
   it("Cenário de Teste: Checando Resultados", () => {
-    cy.visit("https://anydice.com/");
-    cy.get("#codeInput").clear().type(`output 2d6 + 3 named "espadas curtas"`);
-    cy.get("#calculateButton").click();
-    cy.wait(1000);
-    cy.get("#exportDisplay-selector").click();
-    cy.wait(1000);
-    cy.get("#exportDisplay > textarea").should("contain.text", "espadas curtas");
+    cy.accessAnyDice();
+    cy.inputDice(`output 2d6 + 3 named "espadas curtas"`);
+    cy.clickAndWait("#exportDisplay-selector");
+    cy.checkText("#exportDisplay > textarea", "espadas curtas");
+  });
+
+  // 7
+  it("Cenário de Teste: Rolando Dados", () => {
+    cy.accessAnyDice();
+    cy.inputDice(`output 1d8 + 13 named "arco longo"`);
+    cy.clickAndWait("#rollerDisplay-selector");
+    cy.clickAndWait("#rollerButton");
+    cy.checkText("#rollerOutput", "arco longo");
   });
 });
 
@@ -69,7 +62,7 @@ const testFunction = `function: pokerole N dice {
   SUCCESSES: [count {{}4, 5, 6} in Nd6]
   result: SUCCESSES
  }
-   
+ 
  loop N over {{}1..10} {
   output [pokerole N dice] named "[N]d"
  }`;

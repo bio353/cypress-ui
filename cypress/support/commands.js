@@ -23,3 +23,25 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("accessAnyDice", () => {
+  cy.visit("https://anydice.com/");
+});
+
+Cypress.Commands.add("checkText", (key, text) => {
+  cy.get(key).should("contain.text", text);
+});
+
+Cypress.Commands.add("clickAndWait", (key) => {
+  cy.get(key).click();
+  cy.wait(1000);
+});
+
+Cypress.Commands.add("inputDice", (input) => {
+  cy.get("#codeInput").clear().type(input);
+  cy.clickAndWait("#calculateButton");
+});
+
+Cypress.Commands.add("seeDocumentation", () => {
+  cy.get("#documentationPage-selector").click();
+});
