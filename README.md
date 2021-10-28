@@ -8,11 +8,7 @@ Utilizando [cypress](https://docs.cypress.io/guides/getting-started/installing-c
 
 ## Como usar?
 
-Após ter todas as dependências devidamente instaladas, basta irmos executarmos a seguinte linha de comando no terminal:
-
-» `npm init`
-
-Então, é possível utilizar alguns outros comandos, como:
+Após ter todas as dependências devidamente instaladas, basta irmos executarmos as seguintes linhas de comando no terminal:
 
 1. Testar com **cypress**:
 
